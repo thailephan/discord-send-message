@@ -29,11 +29,17 @@ func main() {
 }
 
 func getConfigs() []configs.Config {
+	projectConfigs := [][]configs.Config{
+		configs.EvoqConfigs,
+		configs.KuviConfigs,
+		configs.OptimumConfigs,
+		configs.TemplarConfigs,
+	}
 	res := []configs.Config{ }
 
-	res = append(res, configs.EvoqConfigs...)
-
-	res = append(res, configs.KuviConfigs...)
+	for _, config := range projectConfigs {
+		res = append(res, config...)
+	}
 
 	return res
 }
